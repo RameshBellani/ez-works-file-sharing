@@ -85,7 +85,7 @@ exports.verifyEmail = async (req, res) => {
     if (!user) return res.status(404).json({ message: 'Invalid token' });
 
     user.email_verified = true;
-    user.verification_token = undefined; // Clear the verification token once used
+    user.verification_token = undefined; 
     await user.save();
 
     res.json({ message: 'Email verified successfully.' });

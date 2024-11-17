@@ -1,5 +1,5 @@
 const express = require('express');
-const upload = require('../config/multer'); // Multer configuration
+const upload = require('../config/multer'); 
 const { uploadFile, listFiles, downloadFile } = require('../controllers/fileController');
 const authMiddleware = require('../middlewares/authMiddleware');
 const rolesMiddleware = require('../middlewares/rolesMiddleware');
@@ -13,7 +13,7 @@ router.post(
   rolesMiddleware('Ops User'),
   (req, res, next) => {
     console.log('Multer middleware running');
-    next(); // Proceed to next middleware
+    next(); 
   },
   upload,
   (req, res, next) => {
@@ -23,7 +23,6 @@ router.post(
   uploadFile
 );
 
-// Other routes
 router.get('/list-files', authMiddleware, rolesMiddleware('Client User'), listFiles);
 router.get('/download-file/:file_id', authMiddleware, rolesMiddleware('Client User'), downloadFile);
 

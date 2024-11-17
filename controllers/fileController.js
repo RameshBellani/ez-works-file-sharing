@@ -4,9 +4,9 @@ const path = require('path');
 
 exports.uploadFile = async (req, res) => {
   try {
-    console.log('Request Headers:', req.headers); // Log headers
-    console.log('Request Body:', req.body);      // Log body (should not contain the file)
-    console.log('Request File:', req.file);      // Log file data (should now have file info)
+    console.log('Request Headers:', req.headers); 
+    console.log('Request Body:', req.body);      
+    console.log('Request File:', req.file);      
 
     if (!req.file) {
       return res.status(400).json({ message: 'No file uploaded' });
